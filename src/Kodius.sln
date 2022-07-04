@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{744C7AAE-4D84-4A8F-8F4B-AD11A1E46004}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kodius.Core.Domain", "Core\Kodius.Core.Domain\Kodius.Core.Domain.csproj", "{52EEE60B-E740-4219-ACB3-63443F9500E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kodius.Core.Domain", "Core\Kodius.Core.Domain\Kodius.Core.Domain.csproj", "{52EEE60B-E740-4219-ACB3-63443F9500E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
