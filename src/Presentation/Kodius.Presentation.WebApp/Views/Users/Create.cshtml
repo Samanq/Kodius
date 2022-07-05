@@ -8,13 +8,13 @@
 
 @if (error != null)
 {
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <strong>Error!</strong> @error
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> @error
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 }
 
-@using (Html.BeginForm("Create", "Users", FormMethod.Post, new { @class = "needs-validation, data-form", @novalidate = "", @oninput = "confirmPassword.setCustomValidity(confirmPassword.value != password.value ? 'Passwords do not match.' : '')" }))
+@using (Html.BeginForm("Create", "Users", FormMethod.Post, new { @class = "needs-validation data-form", @novalidate = "", @oninput = "confirmPassword.setCustomValidity(confirmPassword.value != password.value ? 'Passwords do not match.' : '')" }))
 {
     @Html.AntiForgeryToken()
 
@@ -71,9 +71,9 @@
     </div>
 }
 
-
-@section scripts{
+@section Scripts{
     <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
             'use strict'
 
@@ -94,4 +94,4 @@
                 })
         })()
     </script>
-}
+  }

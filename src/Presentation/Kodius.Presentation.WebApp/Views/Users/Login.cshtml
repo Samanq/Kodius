@@ -15,7 +15,7 @@
 </div>
 }
 
-@using (Html.BeginForm("Login", "Users", FormMethod.Post, new { @class = "needs-validation, data-form", @novalidate = "" }))
+@using (Html.BeginForm("Login", "Users", FormMethod.Post, new { @class = "needs-validation data-form", @novalidate = "" }))
 {
     @Html.AntiForgeryToken()
     <div class="form-group row">
