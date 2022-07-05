@@ -27,7 +27,7 @@ public class TokenService : ITokenService
         };
 
         // I'm Reading the key from appsettings.json
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
 
         var credential = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 

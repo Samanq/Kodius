@@ -62,7 +62,7 @@ namespace Kodius.Presentation.WebApp.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Login()
+        public IActionResult Login()
         {
             return View(new LoginModel());
         }
@@ -71,37 +71,31 @@ namespace Kodius.Presentation.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
         {
-            var user = await _repository.GetByEmail(model.Email);
-
-            if (user == null)
+            if (ModelState.IsValid)
             {
-                ViewBag.Error = "User not found";
-                return View(model);
+                var user = await _repository.GetByEmail(model.Email);
+                if (user == null)
+                {
+                    ViewBag.Error = "User not found";
+                    return View(model);
+                }
+
+                if (!_authtenticationService.VerifyPasswordHash(model.Password, user.HashPassword, user.HashSalt))
+                {
+                    ViewBag.Error = "Wrong Password";
+                    return View(model);
+                }
+
+                var token = _tokenService.CreateToken(user);
+                var refreshToken = _tokenService.GenerateRefreshToken();
+                SetRefreshToken(refreshToken, user);
+
+                return RedirectToAction("Index", "Home");
             }
-
-            if (!_authtenticationService.VerifyPasswordHash(model.Password, user.HashPassword, user.HashSalt))
-            {
-                ViewBag.Error = "Wrong Password";
-                return View(model);
-            }
-
-            var token = _tokenService.CreateToken(user);
-            var refreshToken = _tokenService.GenerateRefreshToken();
-            SetRefreshToken(refreshToken, user);
-
-            //if (model.Email.ToLower() != user.Username)
-            //    return BadRequest("User not found.");
-
-            //if (!_authtenticationService.VerifyPasswordHash(dto.Password, user.PasswordHash, user.PasswordSalt))
-            //    return BadRequest("Wrong Password");
-
-            //var token = _tokenService.CreateToken(user);
-
-            //var refreshToken = _tokenService.GenerateRefreshToken();
-            //SetRefreshToken(refreshToken);
-            //return Ok(token);
             return View(model);
         }
+
+
         private void SetRefreshToken(RefreshToken refreshToken, User user)
         {
             var cookieOption = new CookieOptions
