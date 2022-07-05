@@ -89,7 +89,7 @@ namespace Kodius.Presentation.WebApp.Controllers
                 var token = _tokenService.CreateToken(user);
                 var refreshToken = _tokenService.GenerateRefreshToken();
                 SetRefreshToken(refreshToken, user);
-                SetToken(token);
+                SetToken(token, refreshToken.ExpiryDate);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -111,11 +111,11 @@ namespace Kodius.Presentation.WebApp.Controllers
 
             _repository.Edit(user);
         }
-        private void SetToken(string token)
+        private void SetToken(string token, DateTime expiryDateTime)
         {
             CookieOptions cookieOptions = new CookieOptions
             {
-                Expires = DateTime.Now.AddDays(1),
+                Expires = expiryDateTime,
             };
 
             Response.Cookies.Append("token", token, cookieOptions);

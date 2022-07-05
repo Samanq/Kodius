@@ -45,7 +45,7 @@ public class TokenService : ITokenService
     {
         var refreshToken = new RefreshToken
         {
-            ExpiryDate = DateTime.Now.AddMinutes(10),
+            ExpiryDate = DateTime.Now.AddMinutes(2),
             Token = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64)),
         };
 
