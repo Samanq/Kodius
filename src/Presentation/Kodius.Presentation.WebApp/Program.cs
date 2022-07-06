@@ -18,6 +18,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddTransient<ITokenService, TokenService>();
 builder.Services.AddTransient<IAuthtenticationService, AuthtenticationService>();
 builder.Services.AddTransient<IUserRepositoryService, UserRepositoryService>();
+builder.Services.AddSingleton<IAmadeusService, AmadeusService>();
 
 builder.Services.AddAuthentication(options =>
 {
