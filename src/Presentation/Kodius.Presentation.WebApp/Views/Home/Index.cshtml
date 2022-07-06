@@ -1,8 +1,33 @@
-﻿@{
+﻿@using amadeus.resources
+@{
     ViewData["Title"] = "Home Page";
+    FlightOffer[] flightOffers = ViewBag.Flights;
+
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    @foreach (var item in flightOffers)
+    {
+        <p>price = @item.price.total @item.price.currency</p>
+        Itineraries itinerary = item.itineraries.FirstOrDefault();
+
+        if (itinerary != null)
+        {
+            <p>Duration = @itinerary.duration</p>
+
+            Segment segment = @itinerary.segments.FirstOrDefault();
+            if (segment != null)
+            {
+                <p>Departure = @segment.departure.iataCode</p>
+                <p>Destination = @segment.arrival.iataCode</p>
+            }
+        }
+
+
+    }
 </div>

@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{744C7AAE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kodius.Core.Domain", "Core\Kodius.Core.Domain\Kodius.Core.Domain.csproj", "{52EEE60B-E740-4219-ACB3-63443F9500E1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "amadeus", "Infrastructure\amadeus.csproj", "{DFEE7AA9-394C-4772-936C-D5976C72D40E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{52EEE60B-E740-4219-ACB3-63443F9500E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52EEE60B-E740-4219-ACB3-63443F9500E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52EEE60B-E740-4219-ACB3-63443F9500E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFEE7AA9-394C-4772-936C-D5976C72D40E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEE7AA9-394C-4772-936C-D5976C72D40E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFEE7AA9-394C-4772-936C-D5976C72D40E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFEE7AA9-394C-4772-936C-D5976C72D40E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A51FC446-A2FD-4035-9646-1494D99B7AD7} = {B958DBB7-CF84-4970-B949-F9238149463B}
 		{52EEE60B-E740-4219-ACB3-63443F9500E1} = {26FA00B2-849C-4FBA-81BF-6A006AA63A78}
+		{DFEE7AA9-394C-4772-936C-D5976C72D40E} = {43F9A607-E6CC-492D-B076-B63361593F08}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1B25183B-5CA6-4B8D-B2CA-8EE910262411}
